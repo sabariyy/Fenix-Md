@@ -11,21 +11,43 @@ const pino = require("pino");
 const path = require("path");
 const events = require("./lib/event");
 const got = require("got");
+const axios = require("axios");
+const { File } = require("megajs");
 const config = require("./config");
 const { PluginDB } = require("./lib/database/plugins");
 const Greetings = require("./lib/Greetings");
-const { MakeSession } = require("./lib/session");
 const store = makeInMemoryStore({
   logger: pino().child({ level: "silent", stream: "store" }),
 });
 
 require("events").EventEmitter.defaultMaxListeners = 500;
       
-if (!fs.existsSync("./lib/session/creds.json")) {
-  MakeSession(config.SESSION_ID, "lib/session", "mongodb://mongo:IsdhEkEzeMOImPUMSECqaqYsScTmpzha@mongodb.railway.internal:27017").then(
-    console.log("Vesrion : " + require("./package.json").version)
-  );
+const sessionFolder = './session';
+const token = "c861c4509789d59ba33c8855c72dfb44957df4cf95f9efb4c5c91ba9126706c08ebea8fc87e14901c8f147da32967160d790f93c77558cfbdfe97904b01be486";
+
+async function get(key) {
+  try {
+    const config = {
+      method: 'get',
+      url: `https://hastebin.com/raw/${key}`,
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    };
+
+    const response = await axios(config);
+    return response.data.content;
+  } catch (error) {
+    throw new Error(`umbi hastebin umbi`);
+  }
+                        
 }
+
+const key = config.SESSION_ID.split('~')[1];
+const data = await get(key)
+const filePath = path.join(sessionFolder, "creds.json");
+await fs.promises.writeFile(filePath, data);
+
 fs.readdirSync("./lib/database/").forEach((plugin) => {
   if (path.extname(plugin).toLowerCase() == ".js") {
     require("./lib/database/" + plugin);
@@ -37,7 +59,7 @@ async function Abhiy() {
   await config.DATABASE.sync();
 
   const { state, saveCreds } = await useMultiFileAuthState(
-  "./lib/session" ,
+  "./session" ,
     pino({ level: "silent" })
   );
   let conn = makeWASocket({
@@ -50,10 +72,9 @@ async function Abhiy() {
     syncFullHistory: false,
   });
   store.bind(conn.ev);
-  //store.readFromFile("./lib/afiya.json");
+  store.readFromFile("./lib/store.json");
   setInterval(() => {
-    store.writeToFile("./lib/store_db.json");
-    console.log("saved store");
+  store.writeToFile("./lib/store.json");
   }, 30 * 60 * 1000);
 
   conn.ev.on("connection.update", async (s) => {
