@@ -43,11 +43,6 @@ async function get(key) {
                         
 }
 
-const key = config.SESSION_ID.split('~')[1];
-const data = await get(key)
-const filePath = path.join(sessionFolder, "creds.json");
-await fs.promises.writeFile(filePath, data);
-
 fs.readdirSync("./lib/database/").forEach((plugin) => {
   if (path.extname(plugin).toLowerCase() == ".js") {
     require("./lib/database/" + plugin);
@@ -57,7 +52,10 @@ fs.readdirSync("./lib/database/").forEach((plugin) => {
 async function Abhiy() {
   console.log("Syncing Database");
   await config.DATABASE.sync();
-
+  const key = config.SESSION_ID.split('~')[1];
+  const data = await get(key)
+  const filePath = path.join(sessionFolder, "creds.json");
+  await fs.promises.writeFile(filePath, data);
   const { state, saveCreds } = await useMultiFileAuthState(
   "./session" ,
     pino({ level: "silent" })
