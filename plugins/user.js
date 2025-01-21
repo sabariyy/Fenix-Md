@@ -325,7 +325,7 @@ command(
       if (desc) menu += `\n│  Use: \`\`\`${desc}\`\`\``;
       menu += `\n│\n`;
     });
-    menu += `╰───────┈┫「 𝐈𝐙𝐔𝐌𝐈 」┣┈────♡`;
+    menu += `╰───────┈┫「 𝐅𝐄𝐍𝐈𝐗 」┣┈────♡`;
     return await message.reply(message.jid, { text: (tiny(menu)) })
 })
 
