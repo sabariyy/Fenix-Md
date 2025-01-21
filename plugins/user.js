@@ -33,13 +33,12 @@ command(
     },
     async (message, match, client) => {
         const start = new Date().getTime();
-      let { key } = await message.sendMessage(`*Ping 🧚‍♂️*`);
+      let { key } = await message.sendMessage(`*Pɪɴɢ ☁️*`);
         const end = new Date().getTime();
 var speed = end - start;
  
 await new Promise(t => setTimeout(t,0))
-         await message.client.sendMessage(message.jid,{text:`*Pong* 🧚‍♂️
-${speed} *𝚖𝚜*` , edit: key});
+         await message.client.sendMessage(message.jid,{text:`*Pᴏɴʜ* ⛅ ${speed} *Mꜱ*` , edit: key});
 })
 
 /* Copyright (C) 2022 X-Electra.
