@@ -17,7 +17,7 @@ module.exports = {
   BRANCH: "main",
   WARN_COUNT: 3,
   STICKER_DATA: process.env.STICKER_DATA || "FENIX MD;〝 𑁍 | °° 𝛅𝛂𝛃𝛂𝛎𝛊 ￫ 𐎓 ⁹¹¹ 🌥️🐻",
-  BOT_INFO: process.env.BOT_INFO || "FENIX MD;𝐄𝐘𝐏𝐙;https://i.imgur.com/Uc0uIkO.jpeg",
+  BOT_INFO: process.env.BOT_INFO || "FENIX MD;〝 𑁍 | °° 𝛅𝛂𝛃𝛂𝛎𝛊 ￫ 𐎓 ⁹¹¹ 🌥️🐻;https://i.ibb.co/W0T3qZh/file-0.jpg",
   AUDIO_DATA: process.env.AUDIO_DATA || "〝 𑁍 | °° 𝛅𝛂𝛃𝛂𝛎𝛊 ￫ 𐎓 ⁹¹¹ 🌥️🐻;FENIX MD;https://i.imgur.com/Uc0uIkO.jpeg",
   ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "false",
   CAPTION: process.env.CAPTION || "FENIX MD",
