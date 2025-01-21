@@ -21,7 +21,7 @@ module.exports = {
   AUDIO_DATA: process.env.AUDIO_DATA || "〝 𑁍 | °° 𝛅𝛂𝛃𝛂𝛎𝛊 ￫ 𐎓 ⁹¹¹ 🌥️🐻;FENIX MD;https://i.imgur.com/Uc0uIkO.jpeg",
   ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "false",
   CAPTION: process.env.CAPTION || "FENIX MD",
-  WORK_TYPE: process.env.WORK_TYPE || "private",
+  WORK_TYPE: process.env.WORK_TYPE || "public",
   HEROKU_APP_NAME: process.env.HEROKU_APP_NAME || " ",
   HEROKU_API_KEY: process.env.HEROKU_API_KEY || " ",
   SUDO: process.env.SUDO || "919633605648","919074692450",
