@@ -280,7 +280,7 @@ mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/Qh1AEV0.jpeg" }}, caption: (penu)}, {quoted: message })
+thumbnailUrl: "https://i.ibb.co/W0T3qZh/file-0.jpg" }}, caption: (penu)}, {quoted: message })
     }
 }catch(e){
 message.reply(e)
