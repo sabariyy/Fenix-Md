@@ -12,5 +12,3 @@ command(
 message.reply("```" + `SUDO number are : ${zeta}` + "```")
   }
 );
-
-// Zeta-XD 😦
