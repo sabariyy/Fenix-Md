@@ -38,7 +38,7 @@ command(
 var speed = end - start;
  
 await new Promise(t => setTimeout(t,0))
-         await message.client.sendMessage(message.jid,{text:`*Pᴏɴʜ* ⛅ 
+         await message.client.sendMessage(message.jid,{text:`*Pᴏɴɢ* ⛅ 
 	 ${speed} *Mꜱ*` , edit: key});
 })
 
