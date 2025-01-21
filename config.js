@@ -16,11 +16,11 @@ module.exports = {
   HANDLERS: process.env.PREFIX || '^[.]',
   BRANCH: "main",
   WARN_COUNT: 3,
-  STICKER_DATA: process.env.STICKER_DATA || "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗;𝐄𝐘𝐏𝐙",
-  BOT_INFO: process.env.BOT_INFO || "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗;𝐄𝐘𝐏𝐙;https://i.imgur.com/Uc0uIkO.jpeg",
-  AUDIO_DATA: process.env.AUDIO_DATA || "𝐄𝐘𝐏𝐙;𝗜𝗭𝗨𝗠𝗜 𝗫𝗗;https://i.imgur.com/Uc0uIkO.jpeg",
+  STICKER_DATA: process.env.STICKER_DATA || "FENIX MD;〝 𑁍 | °° 𝛅𝛂𝛃𝛂𝛎𝛊 ￫ 𐎓 ⁹¹¹ 🌥️🐻",
+  BOT_INFO: process.env.BOT_INFO || "FENIX MD;𝐄𝐘𝐏𝐙;https://i.imgur.com/Uc0uIkO.jpeg",
+  AUDIO_DATA: process.env.AUDIO_DATA || "〝 𑁍 | °° 𝛅𝛂𝛃𝛂𝛎𝛊 ￫ 𐎓 ⁹¹¹ 🌥️🐻;FENIX MD;https://i.imgur.com/Uc0uIkO.jpeg",
   ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "false",
-  CAPTION: process.env.CAPTION || "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗",
+  CAPTION: process.env.CAPTION || "FENIX MD",
   WORK_TYPE: process.env.WORK_TYPE || "private",
   DATABASE_URL: DATABASE_URL,
   DATABASE:
@@ -42,6 +42,6 @@ module.exports = {
         }),
   HEROKU_APP_NAME: process.env.HEROKU_APP_NAME || " ",
   HEROKU_API_KEY: process.env.HEROKU_API_KEY || " ",
-  SUDO: process.env.SUDO || "0",
+  SUDO: process.env.SUDO || "919633605648",
   IMGBB_KEY: ["76a050f031972d9f27e329d767dd988f", "deb80cd12ababea1c9b9a8ad6ce3fab2", "78c84c62b32a88e86daf87dd509a657a"],
 };
