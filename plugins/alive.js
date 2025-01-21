@@ -3,14 +3,14 @@ const config = require("../config");
 
 // Eypz 
 
-let title = " 𝗛𝗲𝘆 𝗜𝘇𝘂𝗺𝗶 𝗶𝘀 𝗔𝗹𝗶𝘃𝗲🧚‍♂️"
-let body = "𝗜𝗭𝗨𝗠𝗜-𝗫𝗗"
+let title = "𝐇𝐞𝐲𝐲 𝐓𝐡𝐞𝐫𝐞 𝐅𝐞𝐧𝐢𝐱 𝐈𝐬 𝐀𝐥𝐢𝐯𝐞"
+let body = "𝐅𝐄𝐍𝐈𝐗 𝐌𝐃"
 let sourceUrl = ""
 let mediaUrl = ""
 let mediaType = 1
 let showAdAttribution = true
 let renderLargerThumbnail = false
-let thumbnailUrl = "https://i.imgur.com/J2m8RRH.jpeg"
+let thumbnailUrl = "https://i.ibb.co/W0T3qZh/file-0.jpg"
 let seconds = "0xbebc74b"
 let ptt = true
 let fileLength = "100000000"
