@@ -24,7 +24,7 @@ module.exports = {
   WORK_TYPE: process.env.WORK_TYPE || "public",
   HEROKU_APP_NAME: process.env.HEROKU_APP_NAME || " ",
   HEROKU_API_KEY: process.env.HEROKU_API_KEY || " ",
-  SUDO: process.env.SUDO || "919633605648",
+  SUDO: process.env.SUDO || "",
   DATABASE_URL: DATABASE_URL,
   DATABASE:
     DATABASE_URL === "./lib/database.db"
