@@ -25,7 +25,6 @@ module.exports = {
   HEROKU_APP_NAME: process.env.HEROKU_APP_NAME || " ",
   HEROKU_API_KEY: process.env.HEROKU_API_KEY || " ",
   SUDO: process.env.SUDO || "919633605648,918157993101",
-  PORT: process.env.PORT || "3000",
   DATABASE_URL: DATABASE_URL,
   DATABASE:
     DATABASE_URL === "./lib/database.db"
