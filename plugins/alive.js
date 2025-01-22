@@ -24,7 +24,7 @@ command(
   {
     pattern: "alive ?(.*)",
     fromMe: isPrivate,
-    desc: "Izumi here",
+    desc: "Check Bot Alive Or Not",
     type: "user"
   },
   async (message, match, m, client) => {
