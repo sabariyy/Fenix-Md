@@ -271,11 +271,11 @@ Description: ${i.desc}\`\`\``);
         menu += `\n┃  ╰─────────────···▸`;
 	      menu += `\n╰━━━━━━━━━━━┈⊷`;
       });
-menu += `\n\n𝗜𝗭𝗨𝗠𝗜-𝗫𝗗`;
+menu += `\n\n`;
       let penu = tiny(menu)
       let img = config.BOT_INFO.split(';')[2]
       return await message.sendFromUrl(img, {fileLength: "5555544444", gifPlayback: true, contextInfo: { externalAdReply: {
-title: "𝗜𝗭𝗨𝗠𝗜🧚‍♂️",
+title: "〝 𑁍 | °° 𝛅𝛂𝛃𝛂𝛎𝛊 ￫ 𐎓 ⁹¹¹ 🌥️🐻",
 body: "",
 sourceUrl: "",
 mediaUrl: "",
@@ -323,11 +323,11 @@ command(
     });
     cmnd.sort();
     cmnd.forEach(({ cmd, desc }, num) => {
-      menu += `│  ${(num += 1)}. *${cmd.trim()}*`;
+      menu += `│ ➩ ${(num += 1)}. *${cmd.trim()}*`;
       if (desc) menu += `\n│  Use: \`\`\`${desc}\`\`\``;
       menu += `\n│\n`;
     });
-    menu += `╰───────┈┫「 𝐅𝐄𝐍𝐈𝐗 」┣┈────♡`;
+    menu += `╰───────┈┫「 𝟊𝛆𝛈𝛊𝛘 𝚳𝛛 」┣┈────♡`;
     return await message.reply(message.jid, { text: (tiny(menu)) })
 })
 
