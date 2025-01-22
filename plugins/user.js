@@ -228,18 +228,18 @@ Description: ${i.desc}\`\`\``);
         .split(",");
         let usern = message.pushName
         const readMore = String.fromCharCode(8206).repeat(4001);
-      let menu = `\n╭━━━〔 ${BOT_INFO.split(";")[0]} 〕━━━┈
-    ╭──────────────
-  ❖ │  *OWNER*: ${BOT_INFO.split(";")[1]}
-  ❖ │  *USER*: ${usern}
-  ❖ │  *DATE*: ${date}
-  ❖ │  *TIME*: ${time}
-  ❖ │  *COMMANDS*: ${plugins.commands.length}
-  ❖ │  *MODE*: ${config.WORK_TYPE}
-  ❖ │  *PREFIX*: ${config.HANDLERS}
-  ❖ │  *VERSION*: ${require("../package.json").version}
-    ╰──────────────
-╰━━━━━━━━━━━━━━━┈\n ${readMore}`
+      let menu = `\n╭━━━〔 ${BOT_INFO.split(";")[0]} 〕━━━···▸
+┃   ╭──────────────···▸
+┃✧│ *Oᴡɴᴇʀ :*  ${BOT_INFO.split(';')[1]}
+┃✧│ *Usᴇʀ :* ${usern}
+┃✧│ *Cᴏᴍᴍᴀɴᴅs :* ${plugins.commands.length}
+┃✧│ *Dᴀᴛᴇ :* ${date}
+┃✧│ *Tɪᴍᴇ :* ${time}
+┃✧│ *Mᴏᴅᴇ :* ${config.WORK_TYPE}
+┃✧│ *Pʀᴇꜰɪx :*${config.HANDLERS}
+┃✧│ *Vᴇʀsɪᴏɴ :* ${require("../package.json").version}
+┃✧╰──────────────···▸
+╰━━━━━━━━━━━━━━━━━━━━━━━━━···▸\n\n\n${await readMore()}`
 
       let cmnd = [];
       let cmd;
@@ -259,15 +259,17 @@ Description: ${i.desc}\`\`\``);
       });
       cmnd.sort();
       category.sort().forEach((cmmd) => {
-        menu += `\n ╭─────────────┈⚆`;
-        menu += `\n  │ 「 *${cmmd.toUpperCase()}* 」`;
-        menu += `\n ╰┬────────────┈⚆`
-        menu += `\n ╭┴────────────┈⚆`;
+        menu += `╭━━━━━━━━━━━━━━━···▸\n╽`;
+        menu += `\n┃  ╭─────────────┅┄▻`;
+        menu += `\n┃  │  *𑁍 ${cmmd.toUpperCase()}*`
+        menu += `\n┃  ╰┬────────────┅┄▻⚆`;
+        menu += `\n┃  ┌┤`;
         let comad = cmnd.filter(({ type }) => type == cmmd);
         comad.forEach(({ cmd }) => {
-          menu += `\n❆  ${cmd.trim()}`;
+          menu += `\n┃  │ ☆ ${cmd.trim()}`;
         });
-        menu += `\n ╰─────────────┈⚆`;
+        menu += `\n┃  ╰─────────────···▸`;
+	      menu += `\n╰━━━━━━━━━━━┈⊷`;
       });
 menu += `\n\n𝗜𝗭𝗨𝗠𝗜-𝗫𝗗`;
       let penu = tiny(menu)
