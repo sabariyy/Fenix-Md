@@ -239,7 +239,7 @@ Description: ${i.desc}\`\`\``);
 ┃✧│ *Pʀᴇꜰɪx :*${config.HANDLERS}
 ┃✧│ *Vᴇʀsɪᴏɴ :* ${require("../package.json").version}
 ┃✧╰──────────────···▸
-╰━━━━━━━━━━━━━━━━━━━━━━━━━···▸\n\n\n${await readMore()}`
+╰━━━━━━━━━━━━━━━━━━━━━━━━━···▸\n\n\n${readMore}`
 
       let cmnd = [];
       let cmd;
