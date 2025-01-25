@@ -16,14 +16,25 @@ const { File } = require("megajs");
 const config = require("./config");
 const { PluginDB } = require("./lib/database/plugins");
 const Greetings = require("./lib/Greetings");
+const http = require("http"); // Add HTTP module
 const store = makeInMemoryStore({
   logger: pino().child({ level: "silent", stream: "store" }),
 });
 
 require("events").EventEmitter.defaultMaxListeners = 500;
-      
+
 const sessionFolder = './session';
 const token = "c861c4509789d59ba33c8855c72dfb44957df4cf95f9efb4c5c91ba9126706c08ebea8fc87e14901c8f147da32967160d790f93c77558cfbdfe97904b01be486";
+
+// HTTP Server Configuration
+const PORT = process.env.PORT || 3000;
+
+http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("WhatsApp Bot is running!\n");
+}).listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 async function get(key) {
   try {
@@ -40,7 +51,6 @@ async function get(key) {
   } catch (error) {
     throw new Error(`umbi hastebin umbi`);
   }
-                        
 }
 
 fs.readdirSync("./lib/database/").forEach((plugin) => {
@@ -53,18 +63,17 @@ async function Abhiy() {
   console.log("Syncing Database");
   await config.DATABASE.sync();
   const key = config.SESSION_ID.split('~')[1];
-  const data = await get(key)
+  const data = await get(key);
   const filePath = path.join(sessionFolder, "creds.json");
   await fs.promises.writeFile(filePath, data);
   const { state, saveCreds } = await useMultiFileAuthState(
-  "./session" ,
+    "./session",
     pino({ level: "silent" })
   );
   let conn = makeWASocket({
     logger: pino({ level: "silent" }),
     auth: state,
     printQRInTerminal: true,
-
     browser: Browsers.macOS("Desktop"),
     downloadHistory: false,
     syncFullHistory: false,
@@ -72,7 +81,7 @@ async function Abhiy() {
   store.bind(conn.ev);
   store.readFromFile("./lib/store.json");
   setInterval(() => {
-  store.writeToFile("./lib/store.json");
+    store.writeToFile("./lib/store.json");
   }, 30 * 60 * 1000);
 
   conn.ev.on("connection.update", async (s) => {
@@ -93,7 +102,6 @@ async function Abhiy() {
     }
 
     if (connection === "open") {
-    
       console.log("𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗟𝗢𝗚𝗜𝗡𝗘𝗗 𝗜𝗡𝗧𝗢 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 🧃");
       console.log("𝗜𝗡𝗦𝗧𝗔𝗟𝗟𝗜𝗡𝗚 𝗣𝗟𝗨𝗚𝗜𝗡𝗦 🧃");
 
@@ -120,9 +128,9 @@ async function Abhiy() {
       });
       console.log("𝗙𝗘𝗡𝗜𝗫 𝗠𝗗 𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 🧃");
       let readMore = String.fromCharCode(8206).repeat(4001);
-      let str = `𝗙𝗘𝗡𝗜𝗫 𝗠𝗗 𝗦𝗧𝗔𝗥𝗧𝗘𝗗 🧃 ${readMore}\n\n\n𝘝𝘌𝘙𝘚𝘐𝘖𝘕   : *${require("./package.json").version }* \n𝘗𝘓𝘜𝘎𝘐𝘕𝘚  : *${events.commands.length}* \n𝘔𝘖𝘋𝘌  : *${config.WORK_TYPE}* \n𝘗𝘙𝘌𝘍𝘐𝘟  : *${config.HANDLERS}*`;
+      let str = `𝗙𝗘𝗡𝗜𝗫 𝗠𝗗 𝗦𝗧𝗔𝗥𝗧𝗘𝗗 🧃 ${readMore}\n\n\n𝘝𝘌𝘙𝘚𝘐𝘖𝘕   : *${require("./package.json").version}* \n𝘗𝘓𝘜𝘎𝘐𝘕𝘚  : *${events.commands.length}* \n𝘔𝘖𝘋𝘌  : *${config.WORK_TYPE}* \n𝘗𝘙𝘌𝘍𝘐𝘟  : *${config.HANDLERS}*`;
       conn.sendMessage(conn.user.id, { text: str });
-     try {
+      try {
         conn.ev.on("creds.update", saveCreds);
 
         conn.ev.on("group-participants.update", async (data) => {
@@ -192,10 +200,9 @@ async function Abhiy() {
   });
   process.on("uncaughtException", async (err) => {
     let error = err.message;
-       
-   await console.log(err);
- await conn.sendMessage(conn.user.id, { text: error });
-    
+
+    await console.log(err);
+    await conn.sendMessage(conn.user.id, { text: error });
   });
 }
 setTimeout(() => {
